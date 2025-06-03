@@ -1,0 +1,178 @@
+.sidebar {
+  width: 210px;
+  background-color: #2b3a9c;
+  color: white;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Content padding fix */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 2.5rem;
+}
+
+
+/* Hamburger Toggle Button - default hidden */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 0.5rem;
+  left: 1rem;
+  z-index: 1100;
+  background-color: #2b3a9c;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 2.8rem;
+}
+
+/* Navigation */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  margin-right: 3rem;
+  height: 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #415bdc;
+}
+
+/* Users Section */
+.users-wrapper {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ffffff30;
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #ffffffcc;
+  margin-bottom: 0.75rem;
+}
+
+.add-user {
+  background-color: #ffffff22;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-user:hover {
+  background-color: #ffffff33;
+}
+
+.user-card {
+  background-color: white;
+  color: #333;
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.close-modal {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* -------------------------------------
+   Only apply open/collapse logic on mobile
+------------------------------------- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%); /* default hidden */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}

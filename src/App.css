@@ -1,0 +1,40 @@
+/* Add to global CSS */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+/* Your existing styles */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0.6rem;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  height: 33vh;
+}
+
+@media (max-width: 768px) {
+  .top-section{
+    margin-bottom: 2rem;
+  }
+}

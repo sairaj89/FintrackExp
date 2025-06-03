@@ -1,0 +1,55 @@
+/* src/components/Header.css */
+.app-header {
+    display: flex;
+    justify-content: flex-start; /* default alignment */
+    align-items: center;
+    background-color:transparent;
+    padding: 0.3rem;
+    transition: background-color 0.3s ease;
+    height: 2rem;
+    margin-bottom: 1rem;
+    /* Removed border-radius and box-shadow */
+  }
+  
+  body.dark-mode .app-header {
+    background-color: #1e1e1e;
+  }
+  
+  .app-header h1 {
+    font-size: 1.5rem;
+    color: #2b3a9c;
+    margin: 0;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto; /* Pushes user-info to the right */
+  }
+  
+  .user-info .username {
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  body.dark-mode .user-info .username {
+    color: #f0f0f0;
+  }
+  
+  .toggle-btn {
+    background-color: #2b3a9c;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #415bdc;
+  }
+  

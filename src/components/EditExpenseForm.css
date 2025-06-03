@@ -1,0 +1,134 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+  padding: 1rem; /* Ensures space on small screens */
+}
+
+/* Form Container */
+.edit-expense-form {
+  background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Form Heading */
+.edit-expense-form h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #2b3a9c;
+}
+
+/* Labels */
+.edit-expense-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+/* Inputs */
+.edit-expense-form input {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.edit-expense-form input:focus {
+  border-color: #2b3a9c;
+}
+
+/* Buttons Container */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Save Button */
+.save-btn {
+  background-color: #2b3a9c;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #415bdc;
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 1rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c0c0c0;
+}
+
+/* Dark Mode Support */
+body.dark-mode .edit-expense-form {
+  background-color: #1e1e2f;
+}
+
+body.dark-mode .edit-expense-form label {
+  color: #eee;
+}
+
+body.dark-mode .edit-expense-form input {
+  background-color: #2a2a40;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark-mode .edit-expense-form input:focus {
+  border-color: #2b3a9c;
+}

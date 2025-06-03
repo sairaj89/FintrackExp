@@ -1,0 +1,345 @@
+/* General Page Styling */
+.user-page {
+  padding: 2rem;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Table Container */
+.user-table {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Heading */
+.user-table h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Table Animation */
+.table-wrapper {
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+.slide-left {
+  transform: translateX(-20px);
+}
+
+.slide-right {
+  transform: translateX(20px);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* allow dynamic column sizing */
+  word-wrap: break-word;
+}
+
+thead {
+  background-color: #eef2f7;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e0e6ed;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  white-space: nowrap; /* prevent wrapping */
+  max-width: 1%;        /* enable shrink to fit */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Allow wrapping in Actions cell */
+td.actions-cell {
+  white-space: normal;
+}
+
+/* Table header styling */
+th {
+  font-weight: 600;
+  color: #34495e;
+}
+
+tr:hover {
+  background-color: #f9fbfc;
+}
+
+.selected-row {
+  background-color: #e6f7ff !important;
+}
+
+/* Action Buttons Container */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap; /* keep buttons side by side */
+  min-width: 120px;   /* reserve enough width */
+}
+
+/* Individual Buttons */
+.edit-btn,
+.delete-btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap; /* no button text wrap */
+}
+
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.arrow-btn {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #dfe6e9;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.arrow-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.arrow-btn:hover:not(:disabled) {
+  background-color: #b2bec3;
+}
+
+/* Modal Overlay for Edit Form */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+  padding: 1rem;
+}
+
+/* Edit Form Container with Modal Design */
+.edit-form {
+  background-color: #fff;
+  width: 100%;
+  max-width: 520px; /* Increased size */
+  padding: 2.5rem;   /* More internal spacing */
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Edit Form Heading */
+.edit-form h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #2b3a9c;
+}
+
+/* Inputs */
+.edit-form input {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-form input:focus {
+  border-color: #2b3a9c;
+}
+
+/* Buttons Container */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Update Button (Save) */
+.btn-update {
+  background-color: #2b3a9c;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+.btn-update:hover {
+  background-color: #415bdc;
+}
+
+/* Cancel Button */
+.btn-cancel {
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 1rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #c0c0c0;
+}
+
+/* Responsive Modal for Small Screens */
+@media screen and (max-width: 480px) {
+  .edit-form {
+    max-width: 90vw;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .edit-form h3 {
+    font-size: 1.3rem;
+  }
+
+  .edit-form input {
+    font-size: 0.95rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .btn-update,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+body.dark-mode .edit-form {
+  background-color: #1e1e2f;
+}
+
+body.dark-mode .edit-form h3 {
+  color: #eee;
+}
+
+body.dark-mode .edit-form input {
+  background-color: #2a2a40;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark-mode .edit-form input:focus {
+  border-color: #2b3a9c;
+}
+
+/* Responsive adjustments for table and action buttons */
+@media screen and (max-width: 768px) {
+  th,
+  td {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .action-buttons {
+    min-width: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  th,
+  td {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: flex-start;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+}
