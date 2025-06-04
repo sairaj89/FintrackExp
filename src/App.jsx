@@ -11,7 +11,7 @@ import UserPage from './components/UserPage';
 import './App.css';
 
 // Set base URL from environment
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -35,7 +35,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/users`);
+      const res = await fetch(`${VITE_API_BASE_URL}/api/users`);
       const contentType = res.headers.get('content-type');
 
       if (!res.ok) throw new Error('Failed to fetch users');
@@ -58,7 +58,7 @@ function App() {
 
   const fetchExpenses = async (userId) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/users/${userId}/expenses`);
+      const res = await fetch(`${VITE_API_BASE_URL}/api/users/${userId}/expenses`);
       const contentType = res.headers.get('content-type');
 
       if (!res.ok) throw new Error('Failed to fetch expenses');
@@ -77,7 +77,7 @@ function App() {
 
   const handleUserAdded = async (newUser) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/users`, {
+      const res = await fetch(`${VITE_API_BASE_URL}/api/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUser),
@@ -113,7 +113,7 @@ function App() {
 
   const handleDeleteUser = async (id) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/users/${id}`, { method: 'DELETE' });
+      const res = await fetch(`${VITE_API_BASE_URL}/api/users/${id}`, { method: 'DELETE' });
 
       if (!res.ok) {
         const errorText = await res.text();
@@ -138,7 +138,7 @@ function App() {
     try {
       if (editingExpense) {
         const res = await fetch(
-          `${API_BASE_URL}/api/Expenses/${expense.id}`,
+          `${VITE_API_BASE_URL}/api/Expenses/${expense.id}`,
           {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -147,7 +147,7 @@ function App() {
         );
         if (!res.ok) throw new Error('Failed to update expense');
       } else {
-        const res = await fetch(`${API_BASE_URL}/api/users/${currentUser.id}/expenses`, {
+        const res = await fetch(`${VITE_API_BASE_URL}/api/users/${currentUser.id}/expenses`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(expense),
@@ -175,7 +175,7 @@ function App() {
 
     try {
       const res = await fetch(
-        `${API_BASE_URL}/api/Expenses/${expenseId}`,
+        `${VITE_API_BASE_URL}/api/Expenses/${expenseId}`,
         { method: 'DELETE' }
       );
       if (!res.ok) throw new Error('Failed to delete expense');
