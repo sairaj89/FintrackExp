@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './UserPage.css';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function UserPage({ onUserSelect }) {
   const [users, setUsers] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -13,9 +15,9 @@ function UserPage({ onUserSelect }) {
   const usersPerPage = 6;
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users')
+    axios.get(`${API_BASE_URL}/api/users`)
       .then(res => {
-        const validUsers = res.data.filter(user => user && user.id); // Clean up invalid users
+        const validUsers = res.data.filter(user => user && user.id);
         setUsers(validUsers);
 
         if (selectedUserId && !validUsers.some(u => String(u.id) === String(selectedUserId))) {
@@ -28,7 +30,7 @@ function UserPage({ onUserSelect }) {
   }, [selectedUserId, onUserSelect]);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/users/${id}`)
+    axios.delete(`${API_BASE_URL}/api/users/${id}`)
       .then(() => {
         const updatedUsers = users.filter(user => String(user.id) !== String(id));
         setUsers(updatedUsers);
@@ -54,7 +56,7 @@ function UserPage({ onUserSelect }) {
     e.preventDefault();
     const { id, name, email } = editingUser;
 
-    axios.put(`http://localhost:5000/api/users/${id}`, { id, name, email })
+    axios.put(`${API_BASE_URL}/api/users/${id}`, { id, name, email })
       .then((res) => {
         const updatedUser = {
           ...editingUser,
