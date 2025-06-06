@@ -93,19 +93,23 @@ function UserPage({ onUserSelect }) {
   const visibleUsers = users.slice(startIndex, startIndex + usersPerPage);
 
   const handlePrev = () => {
-    setAnimationClass('slide-right');
-    setTimeout(() => {
-      setCurrentPage(prev => prev - 1);
-      setAnimationClass('');
-    }, 400);
+    if (currentPage > 0) {
+      setAnimationClass('slide-right');
+      setTimeout(() => {
+        setCurrentPage(prev => Math.max(prev - 1, 0));
+        setAnimationClass('');
+      }, 400);
+    }
   };
 
   const handleNext = () => {
-    setAnimationClass('slide-left');
-    setTimeout(() => {
-      setCurrentPage(prev => prev + 1);
-      setAnimationClass('');
-    }, 400);
+    if (currentPage < totalPages - 1) {
+      setAnimationClass('slide-left');
+      setTimeout(() => {
+        setCurrentPage(prev => Math.min(prev + 1, totalPages - 1));
+        setAnimationClass('');
+      }, 400);
+    }
   };
 
   return (

@@ -75,31 +75,11 @@ function App() {
     }
   };
 
-  const handleUserAdded = async (newUser) => {
-    try {
-      const res = await fetch(`${VITE_API_BASE_URL}/api/users`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUser),
-      });
-
-      if (!res.ok) throw new Error('Failed to add user');
-
-      const contentType = res.headers.get('content-type');
-      const createdUser =
-        contentType && contentType.includes('application/json')
-          ? await res.json()
-          : null;
-
-      await fetchUsers();
-      if (createdUser) {
-        setCurrentUser(createdUser);
-      }
-      setShowAddUserModal(false);
-      setCurrentView('dashboard');
-    } catch (error) {
-      console.error(error);
-    }
+  const handleUserAdded = (newUser) => {
+    setUsers((prevUsers) => [...prevUsers, newUser]);
+    setCurrentUser(newUser);
+    setShowAddUserModal(false);
+    setCurrentView('dashboard');
   };
 
   const handleUserSelect = (user) => {

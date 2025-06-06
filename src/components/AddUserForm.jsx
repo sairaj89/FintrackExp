@@ -32,9 +32,12 @@ const AddUserForm = ({ onUserAdded, onCancel }) => {
 
       console.log('✅ Server response:', response.data);
       toast.success('User added successfully!');
-      setFormData({ name: '', email: '' });
 
       if (onUserAdded) onUserAdded(response.data);
+      if (onCancel) onCancel();
+
+      setFormData({ name: '', email: '' });
+
     } catch (error) {
       console.error('❌ Failed to add user. Details:');
       if (error.response) {
