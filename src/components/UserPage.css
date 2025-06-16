@@ -332,7 +332,7 @@ body.dark-mode .edit-form input:focus {
   }
 
   .action-buttons {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.3rem;
     justify-content: flex-start;
   }

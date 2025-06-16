@@ -6,6 +6,7 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  overflow: visible; /* ✅ Prevent clipping of buttons */
 }
 
 .expense-table h2 {
@@ -28,7 +29,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.95rem;
   table-layout: auto; /* ✅ Let columns adapt naturally */
-  
 }
 
 .expense-table th,
@@ -38,14 +38,16 @@
   border-bottom: 1px solid #eee;
   vertical-align: middle;
   word-break: break-word; /* ✅ Allow content to wrap */
+  max-width: unset !important; /* ✅ Forcefully removes the limit */
 }
 
-✅ Flex row layout in Actions cell
+/* ✅ Flex row layout in Actions cell */
 .expense-table td.actions-cell {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   flex-wrap: nowrap; /* ✅ Prevent stacking on default view */
+  min-height: 50px;  /* ✅ Prevents clipping of vertically-aligned buttons */
 }
 
 .edit-btn,
@@ -56,7 +58,9 @@
   cursor: pointer;
   font-size: 0.85rem;
   white-space: nowrap; /* ✅ Prevent button text from wrapping */
-  flex-shrink:0;
+  flex-shrink: 0;
+  min-width: 72px;      /* ✅ Ensures same width on desktop */
+  text-align: center;
 }
 
 .edit-btn {
@@ -151,7 +155,7 @@
 
   .edit-btn,
   .delete-btn {
-    width: 100%; /* Better tap targets */
+    min-width: unset;  /* ✅ Reset desktop fixed width */
   }
 
   /* Smaller font & padding for tight spaces */

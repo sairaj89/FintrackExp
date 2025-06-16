@@ -10,7 +10,6 @@ import Header from './components/Header';
 import UserPage from './components/UserPage';
 import './App.css';
 
-// Set base URL from environment
 const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 function App() {
@@ -208,7 +207,8 @@ function App() {
               )}
             </section>
 
-            <section aria-label="Expense List">
+            {/* ✅ Updated className added here */}
+            <section className="bottom-section" aria-label="Expense List">
               <ExpenseTable
                 expenses={userExpenses}
                 onEdit={handleEditExpense}
