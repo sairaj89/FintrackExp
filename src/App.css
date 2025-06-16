@@ -1,11 +1,14 @@
+/* Ensure full-page layout with scroll support */
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;   /* Prevent horizontal scroll */
+  overflow-y: auto;     /* Allow vertical scrolling */
 }
 
+/* App Container Layout */
 .app-container {
   display: flex;
   height: 100vh;
@@ -15,9 +18,11 @@ html, body {
   overflow: hidden;
 }
 
+/* Main Content Area */
 .main-content {
   flex: 1;
   padding: 0.6rem;
+  padding-bottom: 2.5rem; /* ✅ Add space below table */
   background-color: #f9f9f9;
   overflow-y: auto;
   overflow-x: hidden;
@@ -32,9 +37,10 @@ html, body {
   margin-bottom: 2rem;
 }
 
-/* Add spacing below the Expense List section */
+/* Bottom Section for table and pagination */
 .bottom-section {
   margin-top: 1rem;
+  margin-bottom: 2rem; /* ✅ Add more space below */
 }
 
 /* Responsive adjustments */
@@ -47,5 +53,6 @@ html, body {
 
   .bottom-section {
     margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 }

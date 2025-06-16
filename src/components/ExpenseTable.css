@@ -148,9 +148,9 @@
 @media (max-width: 767px) {
   /* Stack Edit/Delete buttons vertically */
   .expense-table td.actions-cell {
-    flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    overflow-x: auto;
   }
 
   .edit-btn,
